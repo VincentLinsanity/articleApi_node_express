@@ -10,13 +10,17 @@ const schema = new Schema({
   account: {
     type: String,
     default: "",
-    index: true
+    index: { unique: true }
   },
   name: {
     type: String,
     default: ""
   },
   password: {
+    type: String,
+    default: ""
+  },
+  salt: {
     type: String,
     default: ""
   },

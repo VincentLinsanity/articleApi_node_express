@@ -1,17 +1,18 @@
 "use strict";
 
 const express = require("express");
+const routes = require("./routes");
+const bodyParser = require("body-parser");
+const { mongo } = require("./models");
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
-
+mongo.setup();
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+routes.setup(app);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
 
 app.listen(3002);
 
