@@ -1,0 +1,12 @@
+{
+  "mongo": {
+    "setting": {
+      "hosts": "127.0.0.1:27017",
+      "user": "",
+      "pass": "",
+      "database": "basic",
+      "replicaSet": ""
+    },
+    "dateFormat": "YYYY/MM/DD HH:mm:ss"
+  }
+}
