@@ -8,5 +8,16 @@
       "replicaSet": ""
     },
     "dateFormat": "YYYY/MM/DD HH:mm:ss"
+  },
+  "redis": {
+    "setting": {
+      "cluster": "FALSE",
+      "hosts": "127.0.0.1:6379",
+      "tls": "FALSE",
+      "password": ""
+    }
+  },
+  "api": {
+    "port": 3002
   }
 }
