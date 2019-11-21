@@ -196,10 +196,6 @@ router.delete("/:id", middleware.authorize, async (req, res) => {
  *       - articles
  *     summary: "articles get api"
  *     description: "取得文章詳情"
- *     produces:
- *       - application/json
- *     consumes:
- *       - application/json
  *     parameters:
  *     responses:
  *       200:
@@ -207,7 +203,7 @@ router.delete("/:id", middleware.authorize, async (req, res) => {
  *         type: object
  *         $ref: '#/definitions/articlesGet'
  */
-router.get("/:id", middleware.authorize, async (req, res) => {
+router.get("/:id", async (req, res) => {
   const { id = "" } = req.params;
   if (id === "") {
     res.status(422);
