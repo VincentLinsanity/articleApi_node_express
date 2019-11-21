@@ -7,18 +7,18 @@ services:
     expose:
       - 6379
 
-  mogo:
+  mongo:
     image: mongo
     container_name: mongo
     expose:
       - 27017
-
   api:
     build: ./
     ports:
       - 3002:3002
     links:
       - redis
+      - mongo
     environment:
       - REDIS_SETTING_HOSTS=cache:6379
       - MONGO_SETTING_HOSTS=mongo:27017
