@@ -43,6 +43,10 @@ const self = {
       console.log(error);
     }
     return false;
+  },
+
+  decodeToken: (token = "") => {
+    return jwt.decode(token);
   }
 };
 

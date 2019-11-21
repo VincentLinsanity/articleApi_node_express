@@ -6,20 +6,25 @@ const mongoose = require("mongoose");
 const moment = require("moment");
 const Schema = mongoose.Schema;
 
+// 使用者
 const schema = new Schema({
+  // 帳號
   account: {
     type: String,
     default: "",
     index: { unique: true }
   },
-  name: {
-    type: String,
-    default: ""
-  },
+  // 密碼
   password: {
     type: String,
     default: ""
   },
+  // 名稱
+  name: {
+    type: String,
+    default: ""
+  },
+  // 加密亂數
   salt: {
     type: String,
     default: ""
