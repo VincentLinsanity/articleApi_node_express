@@ -1,0 +1,26 @@
+version: "3.5"
+
+services:
+  redis:
+    image: redis
+    container_name: cache
+    expose:
+      - 6379
+
+  mogo:
+    image: mongo
+    container_name: mongo
+    expose:
+      - 27017
+
+  api:
+    build: ./
+    ports:
+      - 3002:3002
+    links:
+      - redis
+    environment:
+      - REDIS_SETTING_HOSTS=cache:6379
+      - MONGO_SETTING_HOSTS=mongo:27017
+      - NODE_ENV=production
+      - ENV=prod

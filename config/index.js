@@ -21,11 +21,23 @@ Object.assign(config, overrides);
 if (config.env !== "development") {
   config.mongo = {
     setting: {
-      hosts: process.env.MONGO_HOSTS || "127.0.0.1:27017",
-      user: process.env.MONGO_USER || "",
-      pass: process.env.MONGO_PASS || "",
-      database: process.env.MONGO_DATABASE || "basic",
-      replicaSet: process.env.MONGO_REPLICA || ""
+      hosts: process.env.MONGO_SETTING_HOSTS || config.mongo.setting.hosts,
+      user: process.env.MONGO_SETTING_USER || "",
+      pass: process.env.MONGO_SETTING_PASS || "",
+      database:
+        process.env.MONGO_SETTING_DATABASE || config.mongo.setting.database,
+      replicaSet: process.env.MONGO_SETTING_REPLICA || ""
+    }
+  };
+
+  config.redis = {
+    setting: {
+      cluster:
+        process.env.REDIS_SETTING_CLUSTER || config.redis.setting.cluster,
+      hosts: process.env.REDIS_SETTING_HOSTS || config.redis.setting.hosts,
+      tls: process.env.REDIS_SETTING_TLS || config.redis.setting.tls,
+      password:
+        process.env.REDIS_SETTING_PASSWORD || config.redis.setting.password
     }
   };
 }
