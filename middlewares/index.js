@@ -8,13 +8,13 @@ const self = {
     const account = req.headers["account"];
     const token = req.headers["token"];
     if (!account || !token) {
-      res.send(401);
+      res.sendStatus(401);
       return;
     }
     const key = REDIS_KEYS.API_USER_TOKEN(account);
     const tokenInCache = await redis.get(key);
     if (!tokenInCache || tokenInCache !== token) {
-      res.send(401);
+      res.sendStatus(401);
       return;
     }
     const user = libs.decodeToken(token);

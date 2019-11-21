@@ -34,17 +34,6 @@ const self = {
     return jwt.sign(data, secret);
   },
 
-  verifyJWT: (token = "") => {
-    const { secret = "default_secret" } = config;
-    try {
-      jwt.verify(token, secret);
-      return true;
-    } catch (error) {
-      console.log(error);
-    }
-    return false;
-  },
-
   decodeToken: (token = "") => {
     return jwt.decode(token);
   }
