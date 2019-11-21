@@ -16,7 +16,7 @@ services:
     build: ./
     ports:
       - 3002:3002
-    links:
+    depends_on:
       - redis
       - mongo
     environment:
